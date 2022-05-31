@@ -1,0 +1,56 @@
+{
+  "name": "graphql_library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "start": "node dist/index.js",
+    "dev": "nodemon --exec npx babel-node src/index.js",
+    "prettier": "prettier --config ./.prettierrc --write \"**/*.js\"",
+    "pretest": "eslint --ignore-path .gitignore .",
+    "postinstall": "rm -rf dist && npm run build",
+    "lint": "npm prettier --write --check --config ./.prettierrc \"**/*.js\" && eslint --fix ./src",
+    "release": "release-it patch --no-npm.publish"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "graphql": "^16.3.0",
+    "mongo": "^0.1.0",
+    "mongoose": "^6.2.10"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.9",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "apollo-server-core": "^3.6.7",
+    "apollo-server-express": "^3.6.7",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.4",
+    "babel-preset-env": "^1.7.0",
+    "bcryptjs": "^2.4.3",
+    "eslint": "^8.13.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "fs-extra": "^10.0.1",
+    "graphql-compose": "^9.0.8",
+    "graphql-compose-connection": "^8.2.1",
+    "graphql-compose-mongoose": "^9.7.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.2",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.6.2"
+  }
+}
